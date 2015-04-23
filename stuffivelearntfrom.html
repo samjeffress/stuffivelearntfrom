@@ -1,0 +1,38 @@
+<head>
+  <title>Stuff I've Learnt From</title>
+</head>
+
+<body>
+  <h1>Stuff I've Learnt From!</h1>
+
+  {{> learnings}}
+  {{> addlearning}}
+</body>
+
+<template name="learnings">
+	<ul>
+		{{#each learnings}}
+			<li>{{title}}: {{consumption_type}} @ {{consumed_on}} - from <a href="{{resource_uri}}">{{resource_name}}</a> - rating: {{stars}} / 5
+			</li>
+			}
+		{{/each}}
+	</ul>
+</template>
+
+<template name="addlearning">
+	<form class="new-learning">
+		I 
+		<select name="consumption_type">
+		  <option value="watched">watched</option>
+		  <option value="read">read</option>
+		  <option value="discussed">discussed</option>
+		</select>
+
+		<input type="text" name="resource_uri" placeholder="url"/>
+		(<input type="text" name="resource_name" placeholder="friendly name"/>).
+		I'd give it 
+		<input type="text" name="rating" placeholder="rating (out of 5)"/>.
+		<input type="text" name="tags" placeholder="tags (comma separated)" />
+		<input type="submit"/>
+	</form>
+</template>
